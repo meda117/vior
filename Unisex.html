@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BELVIOR - للجنسين</title>
+<link rel="stylesheet" href="style.css">
+<!-- Icons CDN -->
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body data-section="unisex">
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="cart-container">
+      <ion-icon name="cart-outline" class="icon"></ion-icon>
+      <span id="cart-count">0</span>
+    </div>
+    <img src="imges/logo1.svg" alt="BELVIOR" class="logo">
+    <ion-icon name="menu" id="hamburger" class="icon" style="font-size:2.5rem;"></ion-icon>
+  </div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <ion-icon name="close" class="close-btn" id="closeSidebar"></ion-icon>
+
+  <h2 class="sidebar-title" data-i18n="language">اللغة / Language</h2>
+  <div class="lang-buttons">
+    <button class="lang-btn active" data-lang="ar">العربية</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <ul class="sections" id="sectionsList">
+    <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+    
+    <!-- قسم محاكاة -->
+    <li class="simulation-section">
+      <a href="#" id="simulationToggle">عطور محاكاة <ion-icon name="chevron-down-outline"></ion-icon></a>
+      <ul class="simulation-submenu hidden">
+        <li><a href="men.html" data-i18n="men">رجالي</a></li>
+        <li><a href="women.html" data-i18n="women">حريمي</a></li>
+        <li><a href="Unisex.html" data-i18n="Unisex">للجنسين</a></li>
+      </ul>
+    </li>
+
+    <li><a href="semioriginal.html" data-i18n="semi">ماستر بوكس</a></li>
+    <li><a href="best.html" data-i18n="best">الأكثر مبيعًا</a></li>
+    <li><a href="offers.html" data-i18n="offers">عروض</a></li>
+    <li><a href="#footer" data-i18n="contact">تواصل معنا</a></li>
+  </ul>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+
+
+
+<!-- ================= قسم منتجات للجنسين ================= -->
+<section class="products-page" data-section="unisex" id="products">
+  <p class="section-description">
+    عطور تركيب شرقية مميزة بروائح غنية وفاخرة تناسب جميع الأوقات
+  </p>
+  <h2 class="section-title" data-i18n="Unisex">للجنسين</h2>
+  <!-- قوائم فلترة قسم الشرقي -->
+<div class="filter-tabs">
+  <button class="filter-btn active" data-filter="all">الكل</button>
+  <button class="filter-btn" data-filter="western">غربي</button>
+  <button class="filter-btn" data-filter="oriental">شرقي</button>
+</div>
+
+<!-- Global Search -->
+<div class="global-search">
+  <input 
+    type="text" 
+    class="global-search-input" 
+    placeholder="ابحث عن اسم المنتج..."
+  />
+  <button class="global-search-btn">
+    <ion-icon name="search-outline"></ion-icon>
+  </button>
+
+</div>
+
+  <div class="products-grid">
+
+    <!-- 3. كلمات -->
+    <div class="product-card oriental unisex-card best-seller">
+              <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=kalemat">
+        <img src="unisex img/Kalemat.svg" alt="كلمات" data-i18n-alt="Kalemat">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="Kalemat">كلمات</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=kalemat" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 5. خمره -->
+    <div class="product-card oriental unisex-card best-seller">
+       <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=khomrah">
+        <img src="unisex img/Khomrah.svg" alt="خمره" data-i18n-alt="Khomrah">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="Khomrah">خمره</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=khomrah" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 6. بوكيه -->
+    <div class="product-card oriental unisex-card">
+        <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=bouquet">
+        <img src="unisex img/Bouquet.svg" alt="بوكيه" data-i18n-alt="Bouquet">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="Bouquet">بوكيه</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=bouquet" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 15. بلاك افغانو -->
+    <div class="product-card western unisex-card best-seller">
+      <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=blackAfghano">
+        <img src="unisex img/Black Afgano.svg" alt="بلاك افغانو" data-i18n-alt="BlackAfghano">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="BlackAfghano">بلاك افغانو</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+         <button class="size-option" data-price="175" data-i18n="size30">30 مل</button>
+         <button class="size-option" data-price="225" data-i18n="size50">50 مل</button>
+         <button class="size-option" data-price="350" data-i18n="size100">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=blackAfghano" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 8. اربا بورا -->
+    <div class="product-card oriental unisex-card">
+         <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=arbaBora">
+        <img src="unisex img/Erba Pura.svg" alt="اربا بورا" data-i18n-alt="ArbaBora">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="ArbaBora">اربا بورا</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=arbaBora" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 10. عود مود -->
+    <div class="product-card oriental unisex-card">
+         <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=oudMode">
+        <img src="unisex img/Oud Mood.svg" alt="عود مود" data-i18n-alt="OudMode">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="OudMode">عود مود</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=oudMode" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 1. بكرات روج -->
+    <div class="product-card western unisex-card best-seller">
+       <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=bukratRouge">
+        <img src="unisex img/Baccarat Rouge 540.svg" alt="بكرات روج 540" data-i18n-alt="BukratRouge 540">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="BukratRouge 540">بكرات روج 540</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="175" data-i18n="size30">30 مل</button>
+          <button class="size-option" data-price="225" data-i18n="size50">50 مل</button>
+          <button class="size-option" data-price="350" data-i18n="size100">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=bukratRouge" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    
+<!-- 16. توباكو فانيليا -->
+<div class="product-card western unisex-card best-seller">
+  <span class="gender-badge">للجنسين</span>
+  <a href="product.html?product=tobaccoVanilla">
+    <img src="unisex img/Tobacco Vanille.svg" alt="توباكو فانيليا" data-i18n-alt="TobaccoVanilla">
+  </a>
+  <div class="product-info">
+    <h3 data-i18n="TobaccoVanilla">توباكو فانيليا</h3>
+    <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+    <div class="sizes-container">
+      <button class="size-option" data-price="175" data-i18n="size30">30 مل</button>
+      <button class="size-option" data-price="225" data-i18n="size50">50 مل</button>
+      <button class="size-option" data-price="350" data-i18n="size100">100 مل</button>
+    </div>
+    <p class="price">0 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=tobaccoVanilla" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<!-- 12. مسك أبيض -->
+    <div class="product-card oriental unisex-card">
+         <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=miskAbyad">
+        <img src="unisex img/Musk.svg" alt="مسك أبيض" data-i18n-alt="MiskAbyad">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="MiskAbyad">مسك أبيض</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=miskAbyad" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+    <!-- 13. مسك رمان -->
+    <div class="product-card oriental unisex-card">
+         <span class="gender-badge">للجنسين</span>
+      <a href="product.html?product=miskRoman">
+        <img src="unisex img/Musk.svg" alt="مسك رمان" data-i18n-alt="MiskRoman">
+      </a>
+      <div class="product-info">
+        <h3 data-i18n="MiskRoman">مسك رمان</h3>
+        <div class="size-label" data-i18n="chooseSize">اختار الحجم</div>
+        <div class="sizes-container">
+          <button class="size-option" data-price="250">30 مل</button>
+          <button class="size-option" data-price="350">50 مل</button>
+          <button class="size-option" data-price="450">100 مل</button>
+        </div>
+        <p class="price">0 ج.م</p>
+      </div>
+      <div class="product-actions">
+        <a href="product.html?product=miskRoman" class="view-product-btn">تفاصيل</a>
+        <button class="add-to-cart-btn">أضف للسلة</button>
+      </div>
+    </div>
+
+  </div> <!-- نهاية products-grid -->
+</section> <!-- نهاية قسم منتجات الشرقي -->
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer" id="footer">
+  <div class="footer-container">
+    
+    <!-- شعار واسم الموقع -->
+    <div class="footer-brand">
+      <img src="imges/logo1.svg" alt="Logo" class="footer-logo">
+     
+    </div>
+
+    <div class="footer-contact">
+  <h3>تواصل معنا</h3>
+  <p><span>العنوان: </span>الاسكندرية - العجمي - الهانوفيل - مول اليكس وان </p>
+  <p><span>الهاتف: </span> 01020924857</p>
+  <p><span>البريد الإلكتروني: </span>mahmoudFarid465@gmail.com</p>
+</div>
+
+    <!-- روابط السوشيال ميديا -->
+    <div class="footer-social">
+      <h3>تابعنا</h3>
+      <a href="https://www.instagram.com/vior_perfumes?igsh=MW1sMm15djZuMWtwcg==" target="_blank"><img src="imges/instagram (1).png" alt="Instagram"></a>
+      <a href="https://www.facebook.com/viorperfumes" target="_blank"><img src="imges/facebook.png" alt="Facebook"></a>
+      <a href="https://wa.me/201020924857" target="_blank"><img src="imges/social.png" alt="whatsapp"></a>
+      <a href="#" target="_blank"><img src="imges/tik-tok.png" alt="TikTok"></a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 جميع الحقوق محفوظة لـ <strong>vior</strong></p>
+  </div>
+</footer>
+<!-- Overlay -->
+<div id="cart-overlay"></div>
+
+<!-- CART OVERLAY -->
+<div id="cart-overlay"></div>
+
+<!-- CART SLIDER -->
+<div id="cart-slider">
+  <div class="cart-header">
+    <span>سلة التسوق</span>
+    <button id="close-cart">&times;</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <!-- FREE SHIPPING -->
+  <div id="free-shipping">🚚 توصيل مجاني لفترة محدودة!</div>
+
+  <!-- TOTAL & DISCOUNT -->
+  <div class="cart-total">
+    <span>الإجمالي:</span>
+    <span id="cart-total-price">0 ج.م</span>
+  </div>
+
+  <div id="discount-section">
+    <input type="text" id="discount-code" placeholder="كود الخصم">
+    <button id="apply-discount">تطبيق الخصم</button>
+  </div>
+  <div id="discount-msg"></div>
+
+  <!-- ACTIONS -->
+  <div id="cart-actions">
+    <button id="clear-cart">إفراغ السلة</button>
+    <button id="checkout-btn">إتمام الطلب</button>
+
+    <!-- ORDER FORM -->
+    <div id="order-form">
+      <input type="text" id="order-name" placeholder="الاسم *">
+      <input type="text" id="order-city" placeholder="المحافظة *">
+      <input type="text" id="order-area" placeholder="الحي *">
+      <input type="text" id="order-landmark" placeholder="علامة مميزة بجانبك *">
+      <input type="text" id="order-phone" placeholder="رقم الهاتف *">
+      <input type="text" id="order-phone2" placeholder="رقم هاتف إضافي (اختياري)">
+      <div id="form-error"></div>
+      <button id="send-order">إرسال الطلب</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

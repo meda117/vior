@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BELVIOR - تفاصيل المنتج</title>
+<link rel="stylesheet" href="Product.css">
+<!-- Icons CDN -->
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="cart-container" id="cart-icon">
+  <ion-icon name="cart-outline" class="icon"></ion-icon>
+  <span id="cart-count">0</span>
+</div>
+    <img src="imges/logo1.svg" alt="BELVIOR" class="logo">
+    <ion-icon name="menu" id="hamburger" class="icon" style="font-size:2.5rem;"></ion-icon>
+  </div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <ion-icon name="close" class="close-btn" id="closeSidebar"></ion-icon>
+
+  <h2 class="sidebar-title" data-i18n="language">اللغة / Language</h2>
+  <div class="lang-buttons">
+    <button class="lang-btn active" data-lang="ar">العربية</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <ul class="sections" id="sectionsList">
+    <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+    
+    <!-- قسم محاكاة -->
+    <li class="simulation-section">
+      <a href="#" id="simulationToggle">عطور محاكاة <ion-icon name="chevron-down-outline"></ion-icon></a>
+      <ul class="simulation-submenu hidden">
+        <li><a href="men.html" data-i18n="men">رجالي</a></li>
+        <li><a href="women.html" data-i18n="women">حريمي</a></li>
+        <li><a href="Unisex.html" data-i18n="Unisex">للجنسين</a></li>
+      </ul>
+    </li>
+
+    <li><a href="semioriginal.html" data-i18n="semi">ماستر بوكس</a></li>
+    <li><a href="best.html" data-i18n="best">الأكثر مبيعًا</a></li>
+    <li><a href="offers.html" data-i18n="offers">عروض</a></li>
+   <li><a href="#footer" data-i18n="contact">تواصل معنا</a></li>
+  </ul>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ========== تفاصيل المنتج ========== -->
+<section class="product-detail-page">
+  <div class="product-detail">
+    <div class="product-img-container">
+      <img id="product-img" src="" alt="">
+    </div>
+
+    <div class="product-info">
+      <h2 id="product-name"></h2>
+      <p id="product-brand"></p>
+
+      <div id="product-sizes" class="sizes-container"></div>
+
+      <p id="product-price">0 ج.م</p>
+      <p id="product-description"></p>
+
+      <button id="add-to-cart-btn">أضف للسلة</button>
+    </div>
+  </div>
+</section>
+<section class="recommendations">
+  <h2>أقوى الترشيحات</h2>
+  <div class="recommendations-container" id="recommendations"></div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer" id="footer">
+  <div class="footer-container">
+    
+    <!-- شعار واسم الموقع -->
+    <div class="footer-brand">
+      <img src="imges/logo1.svg" alt="Logo" class="footer-logo">
+     
+    </div>
+
+    <div class="footer-contact">
+  <h3>تواصل معنا</h3>
+  <p><span>العنوان: </span>الاسكندرية - العجمي - الهانوفيل - مول اليكس وان </p>
+  <p><span>الهاتف: </span> 01020924857</p>
+  <p><span>البريد الإلكتروني: </span>mahmoudFarid465@gmail.com</p>
+</div>
+
+    <!-- روابط السوشيال ميديا -->
+    <div class="footer-social">
+      <h3>تابعنا</h3>
+      <a href="https://www.instagram.com/vior_perfumes?igsh=MW1sMm15djZuMWtwcg==" target="_blank"><img src="imges/instagram (1).png" alt="Instagram"></a>
+      <a href="https://www.facebook.com/viorperfumes" target="_blank"><img src="imges/facebook.png" alt="Facebook"></a>
+      <a href="https://wa.me/201020924857" target="_blank"><img src="imges/social.png" alt="whatsapp"></a>
+      <a href="#" target="_blank"><img src="imges/tik-tok.png" alt="TikTok"></a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 جميع الحقوق محفوظة لـ <strong>vior</strong></p>
+  </div>
+</footer>
+
+
+<!-- Overlay -->
+<div id="cart-overlay"></div>
+
+<!-- CART OVERLAY -->
+<div id="cart-overlay"></div>
+
+<!-- CART SLIDER -->
+<div id="cart-slider">
+  <div class="cart-header">
+    <span>سلة التسوق</span>
+    <button id="close-cart">&times;</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <!-- FREE SHIPPING -->
+  <div id="free-shipping">🚚 توصيل مجاني لفترة محدودة!</div>
+
+  <!-- TOTAL & DISCOUNT -->
+  <div class="cart-total">
+    <span>الإجمالي:</span>
+    <span id="cart-total-price">0 ج.م</span>
+  </div>
+
+  <div id="discount-section">
+    <input type="text" id="discount-code" placeholder="كود الخصم">
+    <button id="apply-discount">تطبيق الخصم</button>
+  </div>
+  <div id="discount-msg"></div>
+
+  <!-- ACTIONS -->
+  <div id="cart-actions">
+    <button id="clear-cart">إفراغ السلة</button>
+    <button id="checkout-btn">إتمام الطلب</button>
+
+    <!-- ORDER FORM -->
+    <div id="order-form">
+      <input type="text" id="order-name" placeholder="الاسم *">
+      <input type="text" id="order-city" placeholder="المحافظة *">
+      <input type="text" id="order-area" placeholder="الحي *">
+      <input type="text" id="order-landmark" placeholder="علامة مميزة بجانبك *">
+      <input type="text" id="order-phone" placeholder="رقم الهاتف *">
+      <input type="text" id="order-phone2" placeholder="رقم هاتف إضافي (اختياري)">
+      <div id="form-error"></div>
+      <button id="send-order">إرسال الطلب</button>
+    </div>
+  </div>
+</div>
+<script src="Product.js"></script>
+<script src="cart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

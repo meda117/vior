@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>semioriginal</title>
+    <link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body data-section="semioriginal">
+    
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="cart-container" id="cart-icon">
+  <ion-icon name="cart-outline" class="icon"></ion-icon>
+  <span id="cart-count">0</span>
+</div>
+    <img src="imges/logo1.svg" alt="BELVIOR" class="logo">
+    <ion-icon name="menu" id="hamburger" class="icon" style="font-size:2.5rem;"></ion-icon>
+  </div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <ion-icon name="close" class="close-btn" id="closeSidebar"></ion-icon>
+
+  <h2 class="sidebar-title" data-i18n="language">اللغة / Language</h2>
+  <div class="lang-buttons">
+    <button class="lang-btn active" data-lang="ar">العربية</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <ul class="sections" id="sectionsList">
+    <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+    
+    <!-- قسم محاكاة -->
+    <li class="simulation-section">
+      <a href="#" id="simulationToggle">عطور محاكاة <ion-icon name="chevron-down-outline"></ion-icon></a>
+      <ul class="simulation-submenu hidden">
+        <li><a href="men.html" data-i18n="men">رجالي</a></li>
+        <li><a href="women.html" data-i18n="women">حريمي</a></li>
+        <li><a href="Unisex.html" data-i18n="Unisex">للجنسين</a></li>
+      </ul>
+    </li>
+
+    <li><a href="semioriginal.html" data-i18n="semi">ماستر بوكس</a></li>
+    <li><a href="best.html" data-i18n="best">الأكثر مبيعًا</a></li>
+    <li><a href="offers.html" data-i18n="offers">عروض</a></li>
+    <li><a href="#footer" data-i18n="contact">تواصل معنا</a></li>
+  </ul>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<div class="banner-slider2">
+  <div class="banner-slide2 active">
+    <img src="men img/banner1.svg" alt="Banner 1">
+    <div class="banner-text2">عطر يُحكى، لا يُنسى من أول رشة</div>
+  </div>
+  <div class="banner-slide2">
+    <img src="men img/banner2.svg" alt="Banner 2">
+    <div class="banner-text2">استمتع بمحاكاة أقوى العطور العالمية بجودة لا تُضاهى وتجربة فاخرة تدوم طوال اليوم</div>
+  </div>
+  <div class="banner-slide2">
+    <img src="men img/banner3.svg" alt="Banner 3">
+    <div class="banner-text2">استمتع بخصومات مميزة على كل الأنواع بدون استثناء</div>
+  </div>
+
+  <div class="banner-dots2">
+    <span class="dot2 active" onclick="currentBanner2(0)"></span>
+    <span class="dot2" onclick="currentBanner2(1)"></span>
+    <span class="dot2" onclick="currentBanner2(2)"></span>
+  </div>
+</div>
+
+<!-- ================= قسم منتجات Semi Original ================= -->
+<section class="products-page semi-section" id="products">
+  
+  <p class="section-description">
+    عطور Semi Original بجودة عالية وثبات مميز تحاكي العطور العالمية الفاخرة
+</p>
+
+<h2 class="section-title" data-i18n="semi">Semi Original</h2>
+
+<!-- قوائم الفلترة -->
+<div class="filter-tabs">
+    <button class="filter-btn active" data-filter="all">الكل</button>
+    <button class="filter-btn" data-filter="male">رجالي</button>
+    <button class="filter-btn" data-filter="female">حريمي</button>
+    <button class="filter-btn" data-filter="unisex">للجنسين</button>
+</div>
+
+<!-- Global Search -->
+<div class="global-search">
+    <input 
+      type="text" 
+      class="global-search-input" 
+      placeholder="ابحث عن اسم المنتج..."
+    />
+    <button class="global-search-btn">
+      <ion-icon name="search-outline"></ion-icon>
+    </button>
+
+    <div class="global-search-results"></div>
+</div>
+
+<!-- المنتجات -->
+<div class="products-grid">
+
+  <!-- مثال بطاقة منتج -->
+  <div class="product-card western semi-card best-seller" data-gender="male">
+    <a href="product.html?product=aventus">
+      <img src="semi img/Aventus Creed.svg" alt="Creed Aventus">
+    </a>
+    <div class="product-info">
+      <h3>كريد أفينتوس</h3>
+      <p class="price">650 ج.م</p>
+    </div>
+    <div class="product-actions">
+      <a href="product.html?product=aventus" class="view-product-btn">تفاصيل</a>
+      <button class="add-to-cart-btn">أضف للسلة</button>
+    </div>
+  </div>
+
+  <div class="product-card western semi-card best-seller" data-gender="female">
+    <a href="product.html?product=manseraRoseVanilla1">
+      <img src="semi img/Mansera Rose Vanilla.svg" alt="Mansera Rose Vanilla">
+    </a>
+    <div class="product-info">
+      <h3>مانسيرا روز فانيلا</h3>
+      <p class="price">650 ج.م</p>
+    </div>
+    <div class="product-actions">
+      <a href="product.html?product=manseraRoseVanilla" class="view-product-btn">تفاصيل</a>
+      <button class="add-to-cart-btn">أضف للسلة</button>
+    </div>
+  </div>
+
+  <div class="product-card western semi-card" data-gender="female">
+    <a href="product.html?product=manseraCocoVanilla">
+      <img src="semi img/Mansera Coco Vanilla.svg" alt="Mansera Coco Vanilla">
+    </a>
+    <div class="product-info">
+      <h3>مانسيرا كوكو فانيلا</h3>
+      <p class="price">650 ج.م</p>
+    </div>
+    <div class="product-actions">
+      <a href="product.html?product=manseraCocoVanilla" class="view-product-btn">تفاصيل</a>
+      <button class="add-to-cart-btn">أضف للسلة</button>
+    </div>
+  </div>
+
+  <div class="product-card western semi-card best-seller" data-gender="female">
+    <a href="product.html?product=seePassion">
+      <img src="semi img/Sì Passione.svg" alt="Si Passione">
+    </a>
+    <div class="product-info">
+      <h3>سي باشن</h3>
+      <p class="price">650 ج.م</p>
+    </div>
+    <div class="product-actions">
+      <a href="product.html?product=seePassion" class="view-product-btn">تفاصيل</a>
+      <button class="add-to-cart-btn">أضف للسلة</button>
+    </div>
+  </div>
+
+  <div class="product-card western semi-card" data-gender="male">
+    <a href="product.html?product=dunhillDesireReds">
+      <img src="semi img/Dunhill Desire for a Man.svg" alt="Dunhill Desire Red">
+    </a>
+    <div class="product-info">
+      <h3>دنهل ديزاير ريد</h3>
+      <p class="price">650 ج.م</p>
+    </div>
+    <div class="product-actions">
+      <a href="product.html?product=dunhillDesireReds" class="view-product-btn">تفاصيل</a>
+      <button class="add-to-cart-btn">أضف للسلة</button>
+    </div>
+  </div>
+
+  <!-- تقدر تضيف باقي المنتجات بنفس الطريقة مع تحديد data-gender = male / female / unisex -->
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=invictusss">
+    <img src="semi img/Paco Rabanne Invictus.svg" alt="Paco Rabanne Invictus">
+  </a>
+  <div class="product-info">
+    <h3>إنفيكتوس</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=invictusss" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=yslY">
+    <img src="semi img/Yves Saint Laurent Y.svg" alt="Yves Saint Laurent Y">
+  </a>
+  <div class="product-info">
+    <h3>واي إيف سان لوران</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=yslY" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="female">
+  <a href="product.html?product=tresorMidnightRose">
+    <img src="semi img/Tresor Midnight Rose.svg" alt="Tresor Midnight Rose">
+  </a>
+  <div class="product-info">
+    <h3>تريزور ميدنايت روز</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=tresorMidnightRose" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card" data-gender="male">
+  <a href="product.html?product=lacosteBlacks">
+    <img src="semi img/Lacoste Black.svg" alt="Lacoste Black">
+  </a>
+  <div class="product-info">
+    <h3>لاكوست بلاك</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=lacosteBlacks" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=lacosteWhites">
+    <img src="semi img/Lacoste White.svg" alt="Lacoste White">
+  </a>
+  <div class="product-info">
+    <h3>لاكوست وايت</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=lacosteWhites" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=bleuDeChanel">
+    <img src="semi img/Bleu de Chanel.svg" alt="Bleu de Chanel">
+  </a>
+  <div class="product-info">
+    <h3>بلو دي شانيل</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=bleuDeChanel" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=sauvages">
+    <img src="semi img/Sauvage.svg" alt="Sauvage">
+  </a>
+  <div class="product-info">
+    <h3>سوڤاج</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=sauvages" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="female">
+  <a href="product.html?product=libres">
+    <img src="semi img/Libre.svg" alt="Libre">
+  </a>
+  <div class="product-info">
+    <h3>ليبر</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=libres" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="female">
+  <a href="product.html?product=burberryHers">
+    <img src="semi img/Burberry Her.svg" alt="Burberry Her">
+  </a>
+  <div class="product-info">
+    <h3>بربري هير</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=burberryHers" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="unisex">
+  <a href="product.html?product=imperialValley">
+    <img src="semi img/Imperial Valley.svg" alt="Imperial Valley">
+  </a>
+  <div class="product-info">
+    <h3>قصة إمبريال فالي</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=imperialValley" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card" data-gender="unisex">
+  <a href="product.html?product=nexusXerjoff">
+    <img src="semi img/Nexus Xerjoff.svg" alt="Nexus Xerjoff">
+  </a>
+  <div class="product-info">
+    <h3>نيكسوس زيرجوف</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=nexusXerjoff" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=versaceEross">
+    <img src="semi img/Versace Eros.svg" alt="Versace Eros">
+  </a>
+  <div class="product-info">
+    <h3>فيرزاتشي إيروس</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=versaceEross" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="unisex">
+  <a href="product.html?product=baccaratRouge540">
+    <img src="semi img/Baccarat Rouge 540.svg" alt="Baccarat Rouge 540">
+  </a>
+  <div class="product-info">
+    <h3>بكرات روج 540</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=baccaratRouge540" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+<div class="product-card western semi-card best-seller" data-gender="male">
+  <a href="product.html?product=ultraMale">
+    <img src="semi img/Ultra Male.svg" alt="Ultra Male">
+  </a>
+  <div class="product-info">
+    <h3>ألترا ميل</h3>
+    <p class="price">650 ج.م</p>
+  </div>
+  <div class="product-actions">
+    <a href="product.html?product=ultraMale" class="view-product-btn">تفاصيل</a>
+    <button class="add-to-cart-btn">أضف للسلة</button>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer" id="footer">
+  <div class="footer-container">
+    
+    <!-- شعار واسم الموقع -->
+    <div class="footer-brand">
+      <img src="imges/logo1.svg" alt="Logo" class="footer-logo">
+     
+    </div>
+
+    <div class="footer-contact">
+  <h3>تواصل معنا</h3>
+  <p><span>العنوان: </span>الاسكندرية - العجمي - الهانوفيل - مول اليكس وان </p>
+  <p><span>الهاتف: </span> 01020924857</p>
+  <p><span>البريد الإلكتروني: </span>mahmoudFarid465@gmail.com</p>
+</div>
+
+    <!-- روابط السوشيال ميديا -->
+    <div class="footer-social">
+      <h3>تابعنا</h3>
+      <a href="https://www.instagram.com/vior_perfumes?igsh=MW1sMm15djZuMWtwcg==" target="_blank"><img src="imges/instagram (1).png" alt="Instagram"></a>
+      <a href="https://www.facebook.com/viorperfumes" target="_blank"><img src="imges/facebook.png" alt="Facebook"></a>
+      <a href="https://wa.me/201020924857" target="_blank"><img src="imges/social.png" alt="whatsapp"></a>
+      <a href="#" target="_blank"><img src="imges/tik-tok.png" alt="TikTok"></a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 جميع الحقوق محفوظة لـ <strong>vior</strong></p>
+  </div>
+</footer>
+<!-- Overlay -->
+<div id="cart-overlay"></div>
+
+<!-- CART OVERLAY -->
+<div id="cart-overlay"></div>
+
+<!-- CART SLIDER -->
+<div id="cart-slider">
+  <div class="cart-header">
+    <span>سلة التسوق</span>
+    <button id="close-cart">&times;</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <!-- FREE SHIPPING -->
+  <div id="free-shipping">🚚 توصيل مجاني لفترة محدودة!</div>
+
+  <!-- TOTAL & DISCOUNT -->
+  <div class="cart-total">
+    <span>الإجمالي:</span>
+    <span id="cart-total-price">0 ج.م</span>
+  </div>
+
+  <div id="discount-section">
+    <input type="text" id="discount-code" placeholder="كود الخصم">
+    <button id="apply-discount">تطبيق الخصم</button>
+  </div>
+  <div id="discount-msg"></div>
+
+  <!-- ACTIONS -->
+  <div id="cart-actions">
+    <button id="clear-cart">إفراغ السلة</button>
+    <button id="checkout-btn">إتمام الطلب</button>
+
+    <!-- ORDER FORM -->
+    <div id="order-form">
+      <input type="text" id="order-name" placeholder="الاسم *">
+      <input type="text" id="order-city" placeholder="المحافظة *">
+      <input type="text" id="order-area" placeholder="الحي *">
+      <input type="text" id="order-landmark" placeholder="علامة مميزة بجانبك *">
+      <input type="text" id="order-phone" placeholder="رقم الهاتف *">
+      <input type="text" id="order-phone2" placeholder="رقم هاتف إضافي (اختياري)">
+      <div id="form-error"></div>
+      <button id="send-order">إرسال الطلب</button>
+    </div>
+  </div>
+</div>
+<script src="cart.js"></script>
+<script src="script.js"></script>
+<script src="Product.js"></script>
+
+</body>
+</html>
