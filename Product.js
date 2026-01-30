@@ -3708,20 +3708,22 @@ ultraMale: {
 
 };
 
+// =====================
+// Product.js محسّن
+// =====================
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =====================
   // قراءة الـ query من الرابط
-  // =====================
   const urlParams = new URLSearchParams(window.location.search);
   const productKey = urlParams.get("product");
 
-  // اختر المنتج الحالي من جميع الأقسام
-  const product = menProducts[productKey] || womenProducts[productKey] || unisexProducts[productKey] || semiProducts[productKey];
+  // جلب المنتج من أي قسم موجود
+  const product = (typeof menProducts !== 'undefined' ? menProducts[productKey] : undefined)
+               || (typeof womenProducts !== 'undefined' ? womenProducts[productKey] : undefined)
+               || (typeof unisexProducts !== 'undefined' ? unisexProducts[productKey] : undefined)
+               || (typeof semiProducts !== 'undefined' ? semiProducts[productKey] : undefined);
 
-  // =====================
-  // تحديث تفاصيل المنتج
-  // =====================
+  // إذا المنتج موجود
   if (product) {
     const imgEl = document.getElementById("product-img");
     const nameEl = document.getElementById("product-name");
@@ -3730,15 +3732,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const sizesContainer = document.getElementById("product-sizes");
     const priceEl = document.getElementById("product-price");
 
-    imgEl.src = product.img;
-    imgEl.alt = product.name;
-    nameEl.textContent = product.name;
-    brandEl.textContent = product.brand;
-    descEl.textContent = product.description;
+    imgEl.src = product.img || "";
+    imgEl.alt = product.name || "";
+    nameEl.textContent = product.name || "";
+    brandEl.textContent = product.brand || "";
+    descEl.textContent = product.description || "";
 
-    // =====================
     // إضافة simulation لو موجود
-    // =====================
     if (product.simulation) {
       const simEl = document.createElement("div");
       simEl.classList.add("simulation");
@@ -3746,16 +3746,14 @@ document.addEventListener("DOMContentLoaded", () => {
       brandEl.insertAdjacentElement("afterend", simEl);
     }
 
-    // =====================
     // عرض النجوم
-    // =====================
     const ratingContainer = document.createElement("div");
     ratingContainer.classList.add("product-rating");
     for (let i = 1; i <= 5; i++) {
       const star = document.createElement("span");
       star.classList.add("star");
       star.textContent = "★";
-      if (i <= product.rating) star.classList.add("filled");
+      if (i <= (product.rating || 0)) star.classList.add("filled");
       ratingContainer.appendChild(star);
     }
     nameEl.insertAdjacentElement("afterend", ratingContainer);
@@ -3767,10 +3765,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (product.isSemi) {
       sizesContainer.style.display = "none";
-      priceEl.textContent = product.price + " ج.م";
+      priceEl.textContent = product.price ? product.price + " ج.م" : "0 ج.م";
     } else if (product.sizes && product.sizes.length > 0) {
       sizesContainer.style.display = "flex";
-      product.sizes.forEach(s => {
+
+      product.sizes.forEach((s, index) => {
         const btn = document.createElement("button");
         btn.classList.add("size-option");
         btn.dataset.price = s.price;
@@ -3783,50 +3782,58 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         sizesContainer.appendChild(btn);
-      });
 
-      // السعر يظهر صفر قبل اختيار الحجم
+        // اجعل أول حجم محدد تلقائيًا
+        if (index === 0) {
+          btn.classList.add("active");
+          priceEl.textContent = s.price + " ج.م";
+        }
+      });
+    } else {
       priceEl.textContent = "0 ج.م";
     }
 
     // =====================
     // قسم الوصف والروائح
     // =====================
-    const descriptionSection = document.createElement("section");
-    descriptionSection.classList.add("product-description-details");
+    if (product.descriptionDetails) {
+      const descriptionSection = document.createElement("section");
+      descriptionSection.classList.add("product-description-details");
 
-    function buildNotes(notesArray) {
-      return notesArray.map(note => `
-        <div class="note-item">
-          <img src="${note.img}" alt="${note.name}">
-          <span>${note.name}</span>
+      function buildNotes(notesArray) {
+        if (!notesArray || notesArray.length === 0) return "<p>لا توجد ملاحظات</p>";
+        return notesArray.map(note => `
+          <div class="note-item">
+            <img src="${note.img}" alt="${note.name}">
+            <span>${note.name}</span>
+          </div>
+        `).join("");
+      }
+
+      descriptionSection.innerHTML = `
+        <div class="desc-block">
+          <h3>الوصف</h3>
+          <p>${product.descriptionDetails.main || ""}</p>
         </div>
-      `).join("");
+
+        <div class="desc-block">
+          <h3>الروائح العطرية العليا</h3>
+          <div class="notes-grid">${buildNotes(product.descriptionDetails.top)}</div>
+        </div>
+
+        <div class="desc-block">
+          <h3>الروائح العطرية الوسطى</h3>
+          <div class="notes-grid">${buildNotes(product.descriptionDetails.middle)}</div>
+        </div>
+
+        <div class="desc-block">
+          <h3>الروائح العطرية الأساسية</h3>
+          <div class="notes-grid">${buildNotes(product.descriptionDetails.base)}</div>
+        </div>
+      `;
+
+      document.querySelector(".product-detail-page").appendChild(descriptionSection);
     }
-
-    descriptionSection.innerHTML = `
-      <div class="desc-block">
-        <h3>الوصف</h3>
-        <p>${product.descriptionDetails.main}</p>
-      </div>
-
-      <div class="desc-block">
-        <h3>الروائح العطرية العليا</h3>
-        <div class="notes-grid">${buildNotes(product.descriptionDetails.top)}</div>
-      </div>
-
-      <div class="desc-block">
-        <h3>الروائح العطرية الوسطى</h3>
-        <div class="notes-grid">${buildNotes(product.descriptionDetails.middle)}</div>
-      </div>
-
-      <div class="desc-block">
-        <h3>الروائح العطرية الأساسية</h3>
-        <div class="notes-grid">${buildNotes(product.descriptionDetails.base)}</div>
-      </div>
-    `;
-
-    document.querySelector(".product-detail-page").appendChild(descriptionSection);
 
     // =====================
     // زر الإضافة للسلة
@@ -3836,7 +3843,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let price, sizeText;
 
       if (product.isSemi) {
-        price = product.price;
+        price = product.price || 0;
         sizeText = "";
       } else {
         const selectedSize = sizesContainer.querySelector(".size-option.active");
@@ -3848,14 +3855,15 @@ document.addEventListener("DOMContentLoaded", () => {
         sizeText = selectedSize.textContent;
       }
 
-      // استدعاء دالة addToCart من cart.js
-      if (typeof addToCart === "function") {
+      if (window.addToCart && typeof addToCart === "function") {
         addToCart({
           name: product.name,
           price: parseFloat(price),
           img: product.img,
           size: sizeText
         });
+      } else {
+        console.warn("دالة addToCart غير معرفة");
       }
     });
 
@@ -3863,56 +3871,55 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".product-detail-page").innerHTML = "<p>المنتج غير موجود</p>";
   }
 
-  // ==========================
-  // قسم الترشيحات
-  // ==========================
-  const recommendationsContainer = document.getElementById("recommendations");
-
-  function showRecommendations(currentKey) {
-    if (!recommendationsContainer) return;
-
-    let sectionProducts;
-    if (menProducts[currentKey] !== undefined) { 
-      sectionProducts = menProducts;
-    } else if (womenProducts[currentKey] !== undefined) { 
-      sectionProducts = womenProducts;
-    } else if (unisexProducts[currentKey] !== undefined) { 
-      sectionProducts = unisexProducts;
-    } else if (semiProducts[currentKey] !== undefined) { 
-      sectionProducts = semiProducts;
-    } else {
-      sectionProducts = allProducts;
-    }
-
-    const entries = Object.entries(sectionProducts).filter(([key]) => key !== currentKey);
-    const shuffled = entries.sort(() => 0.5 - Math.random());
-    const recs = shuffled.slice(0, 10);
-
-    recommendationsContainer.innerHTML = "";
-
-    recs.forEach(([key, rec]) => {
-      const card = document.createElement("div");
-      card.className = "rec-card";
-      card.innerHTML = `
-        <img src="${rec.img}" alt="${rec.name}">
-        <h4>${rec.name}</h4>
-        <p>${rec.brand}</p>
-        <p>0 ج.م</p>
-      `;
-
-      card.addEventListener("click", () => {
-        window.location.href = `product.html?product=${key}`;
-      });
-
-      recommendationsContainer.appendChild(card);
-    });
-  }
-
-  if (productKey) {
-    showRecommendations(productKey);
-  }
-
 });
+// ==========================
+// قسم الترشيحات
+// ==========================
+const recommendationsContainer = document.getElementById("recommendations");
+
+function showRecommendations(currentKey) {
+  if (!recommendationsContainer) return;
+
+  let sectionProducts;
+  if (menProducts[currentKey] !== undefined) { 
+    sectionProducts = menProducts;
+  } else if (womenProducts[currentKey] !== undefined) { 
+    sectionProducts = womenProducts;
+  } else if (unisexProducts[currentKey] !== undefined) { 
+    sectionProducts = unisexProducts;
+  } else if (semiProducts[currentKey] !== undefined) { 
+    sectionProducts = semiProducts;
+  } else {
+    sectionProducts = allProducts;
+  }
+
+  const entries = Object.entries(sectionProducts).filter(([key]) => key !== currentKey);
+  const shuffled = entries.sort(() => 0.5 - Math.random());
+  const recs = shuffled.slice(0, 10);
+
+  recommendationsContainer.innerHTML = "";
+
+  recs.forEach(([key, rec]) => {
+    const card = document.createElement("div");
+    card.className = "rec-card";
+    card.innerHTML = `
+      <img src="${rec.img}" alt="${rec.name}">
+      <h4>${rec.name}</h4>
+      <p>${rec.brand}</p>
+      <p>0 ج.م</p>
+    `;
+
+    card.addEventListener("click", () => {
+      window.location.href = `product.html?product=${key}`;
+    });
+
+    recommendationsContainer.appendChild(card);
+  });
+}
+
+if (productKey) {
+  showRecommendations(productKey);
+}
 // ============================
 // SIDEBAR TOGGLE
 // ============================
